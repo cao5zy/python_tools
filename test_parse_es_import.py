@@ -19,7 +19,12 @@ def test_parse_from_with_invalid_line():
     line = "const x=3;"
     item =  parse_from(line)
     assert item == ''
-    
+
+def test_parse_from_with_relative_path():
+    line = "import PrimeBoxScroll from './primeBoxScroller';"
+    item = parse_from(line)
+    assert item == './primeBoxScroller'
+
 def test_gen_entry():
     result = gen_entry('react-native', ['View', 'Animated'])
-    assert result == '{name:"react-native",includes:[{name:"View"},{name:"Animated"}]}'
+    assert result == '{"name":"react-native","includes":[{"name":"View"},{"name":"Animated"}]}'
