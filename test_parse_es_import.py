@@ -1,4 +1,4 @@
-from parse_es_import import parse_import, parse_from
+from parse_es_import import parse_import, parse_from, gen_entry
 
 def test_parse_import():
     line = "import { StyleSheet, View, Animated, ScrollView, Easing } from 'react-native';"
@@ -20,3 +20,6 @@ def test_parse_from_with_invalid_line():
     item =  parse_from(line)
     assert item == ''
     
+def test_gen_entry():
+    result = gen_entry('react-native', ['View', 'Animated'])
+    assert result == '{name:"react-native",includes:[{name:"View"},{name:"Animated"}]}'

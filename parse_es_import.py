@@ -22,3 +22,7 @@ def parse_from(line):
 
     result = re.search(r'''from\s+['"]([\w_-]+)['"]\s*;?''', line)
     return result.group(1) if result else ''
+
+def gen_entry(name, items):
+    fitems = ','.join(list(map(lambda item: f'''{{name:"{item}"}}''', items)))
+    return f'''{{name:"{name}",includes:[{fitems}]}}'''
