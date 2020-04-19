@@ -24,8 +24,8 @@ def parse_from(line):
     return result.group(1) if result else ''
 
 def gen_entry(name, items):
-    fitems = ','.join(list(map(lambda item: f'''{{"name":"{item}"}}''', items)))
-    return f'''{{"name":"{name}","includes":[{fitems}]}}'''
+    fitems = ','.join(list(map(lambda item: f'''"{item}":{{}}''', items)))
+    return f'''{{"{name}":{{{fitems}}}}}'''
 
 
 def main():

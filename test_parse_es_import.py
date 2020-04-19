@@ -27,4 +27,6 @@ def test_parse_from_with_relative_path():
 
 def test_gen_entry():
     result = gen_entry('react-native', ['View', 'Animated'])
-    assert result == '{"name":"react-native","includes":[{"name":"View"},{"name":"Animated"}]}'
+    print('test_gen_entry')
+    print(result)
+    assert result == '{"react-native":{"View":{},"Animated":{}}}'
