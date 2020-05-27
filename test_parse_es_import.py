@@ -29,4 +29,4 @@ def test_gen_entry():
     result = gen_entry('react-native', ['View', 'Animated'])
     print('test_gen_entry')
     print(result)
-    assert result == '{"react-native":{"View":{},"Animated":{}}}'
+    assert result == '"react-native":{"View":{},"Animated":{}}'

@@ -25,7 +25,7 @@ def parse_from(line):
 
 def gen_entry(name, items):
     fitems = ','.join(list(map(lambda item: f'''"{item}":{{}}''', items)))
-    return f'''{{"{name}":{{{fitems}}}}}'''
+    return f'''"{name}":{{{fitems}}}'''
 
 
 def main():
