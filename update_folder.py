@@ -17,7 +17,16 @@ def get_file_time(filePath):
     st = os.stat(filePath)
     return st.st_mtime or st.st_ctime
 
+def get_target_file_name(source_path, target_path):
+    def compose_target_path(file_name):
+        return os.path.join(target_path, file_name[len(source_path)+1:])
+
+    return compose_target_path
+
 if __name__ == '__main__':
-    print(sys.argv[1])
-    list(map(lambda f:print(get_file_time(f)), get_file_names(sys.argv[1])))
+    source_path = sys.argv[1]
+    target_path = sys.argv[2]
+    get_target_path = get_target_file_name(source_path, target_path)
     
+#    list(map(lambda f:print(get_file_time(f)), get_file_names(sys.argv[1])))
+    list(map(lambda f:print(get_target_path(f)), get_file_names(sys.argv[1])))    
