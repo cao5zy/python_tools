@@ -13,6 +13,11 @@ def get_file_names(dirName):
     return fileList
 
 
+def get_file_time(filePath):
+    st = os.stat(filePath)
+    return st.st_mtime or st.st_ctime
+
 if __name__ == '__main__':
     print(sys.argv[1])
-    print(get_file_names(sys.argv[1]))
+    list(map(lambda f:print(get_file_time(f)), get_file_names(sys.argv[1])))
+    
