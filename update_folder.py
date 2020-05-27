@@ -31,7 +31,6 @@ def get_target_file_dir(target_file):
 
 def get_copy_file(get_target_path):
     def copy_file(source_file):
-        print(source_file)
         print(get_target_path(source_file))
         shutil.copy(source_file, get_target_path(source_file))
     return copy_file
@@ -59,4 +58,6 @@ if __name__ == '__main__':
         ensure_dir(source_file)
         copy_file(source_file)
         
-# test
+# 例子：python3 update_folder.py /Users/caozy/Documents/projects/python_tools /Users/caozy/Documents/projects/PH_Taro_1/cxy
+# 不会拷贝python_tools文件夹，只会拷贝python_tools下的所有文件和文件夹到文件夹cxy中
+
