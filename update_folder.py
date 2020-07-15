@@ -56,6 +56,7 @@ if __name__ == '__main__':
 
     for source_file in transferred_files:
         ensure_dir(source_file)
+        print('copied:' + source_file)
         copy_file(source_file)
         
 # 例子：python3 update_folder.py /Users/caozy/Documents/projects/python_tools /Users/caozy/Documents/projects/PH_Taro_1/cxy
